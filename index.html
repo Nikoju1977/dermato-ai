@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" lang="fr">
 <head>
+<meta name="description" content="Dermato AI — analyse dermatologique assistée par vision IA · Studio Niko Design">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="author" content="Nicolas JULIENNE">
@@ -122,6 +123,8 @@
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
         .analyzing { animation: pulse 1.5s infinite; }
     </style>
+
+<link rel="manifest" href="manifest.json">
 </head>
 <body>
 
@@ -607,5 +610,7 @@ function closeOverlay(id) {
 // ── BOOT ──
 startSystem();
 </script>
+
+<footer style="margin-top:24px;padding:14px 16px;background:#0a1418;border-top:1px solid #00ff9d33;color:#9fb4ba;font-size:12px;line-height:1.5;text-align:center;">⚠️ Cet outil est fourni à titre informatif et de suivi personnel. Il ne remplace pas l'avis, le diagnostic ou le traitement d'un professionnel de santé. En cas d'urgence, appelez le 15 (SAMU) ou le 112.</footer>
 </body>
 </html>
