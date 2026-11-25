@@ -12,7 +12,7 @@ Explorer la photographie numérique et le calcul de caractéristiques visuelles 
 
 [English overview](#english-overview) · [Quickstart](#quickstart--démarrage-rapide) · [Portfolio](https://github.com/Nikoju1977)
 
-> [Insérer ici un GIF de démonstration avec données synthétiques / Insert synthetic-data demo GIF here]
+> Démonstration : images synthétiques uniquement. Aucun GIF ni résultat de test n'est revendiqué.
 
 > **Prototype non validé cliniquement.** Ne pas utiliser pour un diagnostic, une prescription, un triage, une décision de traitement ou une urgence. En France, danger immédiat : 15 ou 112. Inspection statique uniquement ; aucun nouveau test d'exécution, audit de sécurité, test fournisseur, benchmark, validation clinique ou vérification de déploiement n'a été effectué.
 
@@ -64,6 +64,23 @@ DICOM (pour l'imagerie concernée), ISO 13485 (qualité), IEC 62304 (cycle de vi
 ## Quickstart / Démarrage rapide
 
 Servir la racine avec `python3 -m http.server 8000`, ouvrir http://localhost:8000/. Examiner l'interface sans données personnelles ni clé réelle. Les permissions caméra nécessitent un contexte sécurisé. Ne pas lancer une analyse distante de peau réelle.
+
+## Qualification proposée — traitement d'image et fiabilité des indicateurs
+
+**Priorité P0 :** remplacer les scores de secours fixes par un état indisponible explicite, et retirer les conclusions médicales non validées. Cette documentation ne corrige pas le code applicatif.
+
+| Contrôle proposé (non exécuté) | Critère attendu |
+| --- | --- |
+| Luminosité numérique | Sur des aplats synthétiques, vérifier la moyenne des canaux RGB ; ne pas convertir en lux sans étalonnage |
+| Descripteurs OpenCV | Vérifier les calculs sur des images synthétiques connues, sous conditions reproductibles |
+| Moteur indisponible | Aucun score présenté comme une observation lorsque le calcul échoue |
+| Région analysée | Documenter le masque et les pixels réellement utilisés ; ne pas supposer que tout pixel correspond à la peau |
+| Rapport génératif | Affichage sûr des contenus non fiables ; aucune interprétation diagnostique automatique |
+| Données | Vérifier arrêt de la caméra, protection des secrets, consentement et flux réseau, sans visage réel ni clé réelle |
+
+Les indicateurs numériques sont des descripteurs de l'image, sensibles à l'éclairage, au capteur et au cadrage. La présence d'OpenCV et de repères faciaux ne démontre pas une mesure biologique ou une performance clinique.
+
+**English:** Proposed checks use synthetic images to assess numerical descriptors and failure handling. Fixed fallback scores must be replaced by explicit unavailable states. No runtime, provider, security or clinical tests were performed.
 
 ## Roadmap & contribution
 
